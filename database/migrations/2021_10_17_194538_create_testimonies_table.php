@@ -20,6 +20,9 @@ class CreateTestimoniesTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('path_img')->nullable();
+            $table->string('background')->default('white');
+            $table->string('color')->default('dark-grayish-blue');
+            $table->string('class')->default('');
             $table->timestamps();
         });
     }

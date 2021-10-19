@@ -20,7 +20,11 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 });*/
 
-Route::middleware('auth:sanctum')->post('/testimonials', [TestimonyController::class, 'index'])->name('testimonials');
-Route::post('/user/getToken',[AuthController::class,'getToken'])->name('getToken');
+Route::prefix('v1')->group(function () {
+    Route::middleware('auth:sanctum')->post('/testimonials',
+        [TestimonyController::class, 'index']
+    )->name('testimonials');
+    Route::post('/user/getToken', [AuthController::class, 'getToken'])->name('getToken');
+});
 
 
